@@ -13,10 +13,11 @@
         const vm = Vue.createApp({
             data() {
                 return {
-                    text: "Hola <b>Vue.js</b>"
+                    value: "https://www.w3schools.com/html/pic_trulli.jpg",
+                    attr: "src"
                 };
             },
-            template: `<p v-html="text"></p>`,
+            template: `<img v-bind:[attr]="value">`,
         }).mount("#app");
     </script>
 </body>
