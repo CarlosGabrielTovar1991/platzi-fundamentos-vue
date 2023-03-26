@@ -17,14 +17,30 @@
                 };
             },
             methods: {
-                submitForm(event) {
+                increase(event) {
                     this.counter++;
+                },
+                decrease(event) {
+                    this.counter--;
                 }
             },
             template: `
-            <form v-on:submit.prevent.stop="submitForm">
-                <button>{{counter}}</button>
-            </form>
+            <h1>Reto #1 - Fundamentos de Vue</h1>
+            <table>
+                <tbody>
+                    <tr>
+                        <td colspan="2">Contador: {{counter}}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button v-on:click="increase">Incrementar</button>
+                        </td>
+                        <td>
+                            <button v-on:click="decrease">Decrementar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
             `,
         }).mount("#app");
     </script>
