@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Platzi - Curso de Fundamentos de Vue</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
@@ -13,34 +13,21 @@
         const vm = Vue.createApp({
             data() {
                 return {
-                    counter: 0,
+                    text: "Hola Vue",
                 };
             },
             methods: {
-                increase(event) {
-                    this.counter++;
-                },
-                decrease(event) {
-                    this.counter--;
+                input(e) {
+                    this.text= e.target.value;
                 }
             },
             template: `
-            <h1>Reto #1 - Fundamentos de Vue</h1>
-            <table>
-                <tbody>
-                    <tr>
-                        <td colspan="2">Contador: {{counter}}</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button v-on:click="increase">Incrementar</button>
-                        </td>
-                        <td>
-                            <button v-on:click="decrease">Decrementar</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                <p>{{ text }}</p>
+                <input
+                    type="text"
+                    @:input="input"
+                    :value="text"
+                />
             `,
         }).mount("#app");
     </script>
