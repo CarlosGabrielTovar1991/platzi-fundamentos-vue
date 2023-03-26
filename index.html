@@ -13,11 +13,19 @@
         const vm = Vue.createApp({
             data() {
                 return {
-                    value: "https://www.w3schools.com/html/pic_trulli.jpg",
-                    attr: "src"
+                    counter: 0,
                 };
             },
-            template: `<img v-bind:[attr]="value">`,
+            methods: {
+                submitForm(event) {
+                    this.counter++;
+                }
+            },
+            template: `
+            <form v-on:submit.prevent.stop="submitForm">
+                <button>{{counter}}</button>
+            </form>
+            `,
         }).mount("#app");
     </script>
 </body>
